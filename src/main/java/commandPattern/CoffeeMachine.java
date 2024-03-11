@@ -6,21 +6,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import static commandPattern.MachineCommand.*;
+
 public class CoffeeMachine {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         MachineInventory machineInventory = new MachineInventory();
 
-        Map<String, Command> commands = new HashMap<>();
-        commands.put("buy", new BuyCommand(machineInventory));
-        commands.put("fill", new FillCommand(machineInventory));
-        commands.put("take", new TakeCommand(machineInventory));
-        commands.put("remaining", new RemainingCommand(machineInventory));
-        commands.put("exit", new ExitCommand(machineInventory));
+        Map<MachineCommand, Command> commands = new HashMap<>();
+        commands.put(BUY, new BuyCommand(machineInventory));
+        commands.put(FILL, new FillCommand(machineInventory));
+        commands.put(TAKE, new TakeCommand(machineInventory));
+        commands.put(REMAINING, new RemainingCommand(machineInventory));
+        commands.put(EXIT, new ExitCommand(machineInventory));
 
         while (machineInventory.isRunning()) {
             System.out.println("Write action (buy, fill, take, remaining, exit):");
-            String action = scanner.next();
+            MachineCommand action = MachineCommand.valueOf(scanner.next().toUpperCase());
 
             Command command = commands.get(action);
             if (command != null) {
