@@ -1,4 +1,4 @@
-package machine.command;
+package commandPattern.command;
 
 public interface Command {
     void execute();

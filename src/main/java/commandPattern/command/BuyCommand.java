@@ -1,6 +1,7 @@
-package machine.command;
+package commandPattern.command;
 
-import machine.MachineInventory;
+
+import commandPattern.MachineInventory;
 
 public class BuyCommand implements Command {
     private final MachineInventory machineInventory;

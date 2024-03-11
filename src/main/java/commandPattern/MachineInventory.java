@@ -1,4 +1,4 @@
-package machine;
+package commandPattern;
 
 import java.util.Scanner;
 

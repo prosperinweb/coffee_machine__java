@@ -1,9 +1,10 @@
-package machine;
+package commandPattern;
+
+import commandPattern.command.*;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import machine.command.*;
 
 public class CoffeeMachine {
     public static void main(String[] args) {
